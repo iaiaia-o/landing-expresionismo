@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresionismo Abstracto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variables de Estilo (Paleta) --- */
+        :root {
+            --bg-color: #f4f1ec; /* Fondo beige claro del body */
+            --hero-bg-color: #e8e4db; /* Fondo ligeramente más oscuro para la sección hero */
+            --text-color: #333333; /* Texto principal oscuro */
+            --text-light: #555; /* Texto secundario gris */
+            --border-color: #dcdcdc; /* Borde sutil */
+            --button-bg: #e0e0e0; /* Fondo del botón nav */
+
+            /* Tipografías */
+            --font-serif: 'Playfair Display', serif; /* Para títulos */
+            --font-sans: 'Lato', sans-serif; /* Para cuerpo de texto */
+            
+            /* Paleta de colores de las cajas */
+            --color-1: #e6c640; /* Amarillo */
+            --color-2: #d97a6a; /* Naranja/Salmón */
+            --color-3: #4a90c2; /* Azul */
+            --color-4: #a993b9; /* Morado/Lila */
+        }
+
+        /* --- Reset y Configuración General --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Contenedor Principal --- */
+        .container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* --- Cabecera (Nav) --- */
+        .main-nav {
+            display: flex;
+            justify-content: flex-end; /* Alinea el botón a la derecha */
+            align-items: center;
+            padding: 25px 30px;
+            width: 100%;
+            background-color: var(--hero-bg-color); /* Mismo fondo que la sección hero */
+        }
+
+        /* Eliminamos .logo ya que la estrellita se quita */
+        /* .logo { ... } */
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            background-color: var(--button-bg);
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px; 
+        }
+
+        /* --- Sección Principal (Hero) --- */
+        .hero-section {
+            background-color: var(--hero-bg-color); /* Fondo para la sección superior */
+            padding-bottom: 40px; /* Para mantener espacio inferior */
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 0 20px; /* Ajustamos el padding para el nuevo fondo de sección */
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem; 
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- Contenedor de la Imagen (Image Wrapper) (MODIFICADO) --- */
+        .image-wrapper {
+            width: 100%; /* Ocupa el 100% del ancho del contenedor */
+            max-width: 1200px; /* Máximo ancho del contenido */
+            height: 200px; /* Altura fija */
+            margin: 0 auto; /* Centra el contenedor si es más pequeño que el max-width */
+            /* Eliminamos el background-color y border ya que la imagen lo cubrirá */
+            /* background-color: #ffffff; */
+            /* border: 1px solid var(--border-color); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+        }
+
+        .image-wrapper img {
+            width: 100%; /* La imagen ocupa todo el ancho de su contenedor */
+            height: 100%; /* La imagen ocupa toda la altura de su contenedor */
+            object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsionar */
+            display: block; 
+        }
+
+        /* --- Rejilla de Características --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            padding: 40px 30px;
+        }
+
+        /* --- Cajas de Características --- */
+        .feature-box {
+            display: block; 
+            padding: 20px;
+            border-radius: 8px;
+            min-height: 140px; 
+            position: relative;
+            color: #ffffff;
+            text-decoration: none; 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .feature-box h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .feature-box p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            opacity: 0.9;
+            text-transform: uppercase;
+        }
+
+        /* Asignación de colores de fondo (4 cajas) */
+        .box-1 { background-color: var(--color-1); color: #333; } /* Texto oscuro para fondo claro */
+        .box-2 { background-color: var(--color-2); }
+        .box-3 { background-color: var(--color-3); }
+        .box-4 { background-color: var(--color-4); }
+
+
+        /* --- Pie de página --- */
+        .footer-text {
+            text-align: center;
+            padding: 30px 20px 60px 20px;
+            max-width: 650px; 
+            margin: 0 auto;
+            color: #777; 
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        /* --- Diseño Responsivo (MODIFICADO) --- */
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 20px;
+            }
+            .main-nav {
+                padding: 20px 20px;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr); 
+                padding: 30px 20px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .image-wrapper {
+                height: 150px; /* Ajuste de altura en móviles si es necesario, o mantener 200px */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <nav class="main-nav">
+            <a href="#" class="nav-link">
+                <span>👤</span> Conoce a los Maestros
+            </a>
+        </nav>
+
+        <main class="container">
+            <section class="hero">
+                <h1>EXPRESIONISMO ABSTRACTO</h1>
+                <p>Un movimiento que enfatiza la libertad creativa mezclando abstracción con intensidad emocional</p>
+                
+                <div class="image-wrapper">
+                    <img src="image.jpg" alt="Obra de expresionismo abstracto">
+                </div>
+            </section>
+        </main>
+    </header>
+
+    <div class="container">
+        <section class="features-grid">
+            
+            <a href="#" class="feature-box box-1">
+                <h3>PINTAR</h3>
+                <p>INICIAL</p>
+            </a>
+            
+            <a href="#" class="feature-box box-2">
+                <h3>PINTAR</h3>
+                <p>EXPLORAR</p>
+            </a>
+            
+            <a href="#" class="feature-box box-3">
+                <h3>PUZZLE</h3>
+                <p>INICIAL</p>
+            </a>
+            
+            <a href="#" class="feature-box box-4">
+                <h3>PUZZLE</h3>
+                <p>EXPLORAR</p>
+            </a>
+
+        </section>
+    </div>
+
+    <footer>
+        <p class="footer-text">
+            El expresionismo nos ayuda a liberar nuestra creatividad para atrevernos a representar la realidad
+            desde un enfoque diferente, inusual y subjetivo. Ahora puedes experimentar a tu ritmo.<br> Dependiendo del tráfico en el servidor hay tiempos de hasta 30/60 segundos.
+        </p>
+    </footer>
+
+</body>
+</html>
